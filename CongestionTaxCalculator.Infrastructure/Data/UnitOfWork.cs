@@ -1,9 +1,11 @@
-﻿using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
+﻿using CongestionTaxCalculator.Domain.Entities.TollFees;
+using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDays;
 using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Domain.Entities.Vehicles;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
 using CongestionTaxCalculator.Domain.Shared.Interfaces;
+using CongestionTaxCalculator.Infrastructure.Entities.TollFees;
 using CongestionTaxCalculator.Infrastructure.Entities.TollFreeDates;
 using CongestionTaxCalculator.Infrastructure.Entities.TollFreeDays;
 using CongestionTaxCalculator.Infrastructure.Entities.TollFreeVehicleTypes;
@@ -32,5 +34,8 @@ namespace CongestionTaxCalculator.Infrastructure.Data
 
         public ITollFreeVehicleTypeReadRepository TollFreeVehicleTypeReadRepository => new TollFreeVehicleTypeReadRepository(AppDbContext());
         public ITollFreeVehicleTypeWriteRepository TollFreeVehicleTypeWriteRepository => new TollFreeVehicleTypeWriteRepository(AppDbContext());
+
+        public ITollFeeReadRepository TollFeeReadRepository => new TollFeeReadRepository(AppDbContext());
+        public ITollFeeWriteRepository TollFeeWriteRepository => new TollFeeWriteRepository(AppDbContext());
     }
 }

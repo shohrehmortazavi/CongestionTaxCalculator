@@ -1,4 +1,5 @@
-﻿using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
+﻿using CongestionTaxCalculator.Domain.Entities.TollFees;
+using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDays;
 using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Domain.Entities.Vehicles;
@@ -22,5 +23,8 @@ namespace CongestionTaxCalculator.Domain.Shared.Interfaces
 
         public ITollFreeVehicleTypeReadRepository TollFreeVehicleTypeReadRepository { get; }
         public ITollFreeVehicleTypeWriteRepository TollFreeVehicleTypeWriteRepository { get; }
+
+        public ITollFeeReadRepository TollFeeReadRepository { get; }
+        public ITollFeeWriteRepository TollFeeWriteRepository { get; }
     }
 }

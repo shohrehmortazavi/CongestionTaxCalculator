@@ -1,4 +1,5 @@
-﻿using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
+﻿using CongestionTaxCalculator.Domain.Entities.TollFees;
+using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDays;
 using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
@@ -26,6 +27,7 @@ namespace CongestionTaxCalculator.Infrastructure.Data
                 CreateTollFreeVehicleTypes(_context);
                 CreateTollFreeDays(_context);
                 CreateTollFreeDates(_context);
+                CreateTollFees(_context);
 
             }
             catch (Exception e)
@@ -98,6 +100,24 @@ namespace CongestionTaxCalculator.Infrastructure.Data
 
                 for (int i = 1; i <= 31; i++)
                     _context.TollFreeDates.Add(new TollFreeDate(new DateOnly(2023, 7, i)));
+                _context.SaveChanges();
+            }
+        }
+        private static void CreateTollFees(AppDbContext _context)
+        {
+            _context.Database.EnsureCreated();
+            if (!_context.TollFees.Any())
+            {
+                _context.TollFees.Add(new TollFee(new TimeOnly(6, 0), new TimeOnly(6, 29), 8));
+                _context.TollFees.Add(new TollFee(new TimeOnly(6, 30), new TimeOnly(6, 59), 13));
+                _context.TollFees.Add(new TollFee(new TimeOnly(7, 0), new TimeOnly(7, 59), 18));
+                _context.TollFees.Add(new TollFee(new TimeOnly(8, 0), new TimeOnly(8, 29), 13));
+                _context.TollFees.Add(new TollFee(new TimeOnly(8, 30), new TimeOnly(14, 59), 8));
+                _context.TollFees.Add(new TollFee(new TimeOnly(15, 0), new TimeOnly(15, 29), 13));
+                _context.TollFees.Add(new TollFee(new TimeOnly(15, 0), new TimeOnly(16, 59), 18));
+                _context.TollFees.Add(new TollFee(new TimeOnly(17, 0), new TimeOnly(17, 59), 13));
+                _context.TollFees.Add(new TollFee(new TimeOnly(18, 0), new TimeOnly(18, 29), 8));
+
                 _context.SaveChanges();
             }
         }

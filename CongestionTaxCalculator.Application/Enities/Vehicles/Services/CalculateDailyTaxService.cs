@@ -11,25 +11,28 @@ namespace CongestionTaxCalculator.Application.Entities.Vehicles.Services
         }
 
         public int GetDailyTollFee(VehicleRequestDto vehicle, DateTime date)
+
         {
             if (IsTollFreeDay(date.DayOfWeek) || IsTollFreeDate(date) || IsTollFreeVehicleType(vehicle.VehicleTypeId))
                 return 0;
 
-            int hour = date.Hour;
-            int minute = date.Minute;
-
-            if (hour == 6 && minute >= 0 && minute <= 29) return 8;
-            else if (hour == 6 && minute >= 30 && minute <= 59) return 13;
-            else if (hour == 7 && minute >= 0 && minute <= 59) return 18;
-            else if (hour == 8 && minute >= 0 && minute <= 29) return 13;
-            else if (hour >= 8 && hour <= 14 && minute >= 30 && minute <= 59) return 8;
-            else if (hour == 15 && minute >= 0 && minute <= 29) return 13;
-            else if (hour == 15 && minute >= 0 || hour == 16 && minute <= 59) return 18;
-            else if (hour == 17 && minute >= 0 && minute <= 59) return 13;
-            else if (hour == 18 && minute >= 0 && minute <= 29) return 8;
-            else return 0;
+            return GetFee(TimeOnly.FromDateTime(date));
         }
 
+        private int GetFee(TimeOnly time)
+        {
+            var fees = _unitOfWork.TollFeeReadRepository.GetAllAsynce().Result;
+
+            if (!fees.Any()) throw new Exception("TollFee not found");
+
+            var totalFee = 0;
+
+            foreach (var fee in fees)
+                if (time.CompareTo(fee.MinTime) >= 0 && time.CompareTo(fee.MaxTime) <= 0)
+                    totalFee += fee.Fee;
+
+            return totalFee;
+        }
 
         private bool IsTollFreeDay(DayOfWeek day)
         {

@@ -11,6 +11,8 @@ using CongestionTaxCalculator.Infrastructure.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Infrastructure.Entities.Vehicles;
 using CongestionTaxCalculator.Infrastructure.Entities.VehicleTypes;
 using Microsoft.EntityFrameworkCore;
+using CongestionTaxCalculator.Domain.Entities.TollFees;
+using CongestionTaxCalculator.Infrastructure.Entities.TollFees;
 
 namespace CongestionTaxCalculator.Infrastructure.Data
 {
@@ -24,6 +26,7 @@ namespace CongestionTaxCalculator.Infrastructure.Data
         public DbSet<TollFreeVehicleType> TollFreeVehicleTypes { get; set; }
         public DbSet<TollFreeDay> TollFreeDays { get; set; }
         public DbSet<TollFreeDate> TollFreeDates { get; set; }
+        public DbSet<TollFee> TollFees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +38,7 @@ namespace CongestionTaxCalculator.Infrastructure.Data
             modelBuilder.Entity<TollFreeVehicleType>();
             modelBuilder.Entity<TollFreeDate>();
             modelBuilder.Entity<TollFreeDay>();
+            modelBuilder.Entity<TollFee>();
 
 
             modelBuilder.ApplyConfiguration(new VehicleConfiguration());
@@ -42,6 +46,7 @@ namespace CongestionTaxCalculator.Infrastructure.Data
             modelBuilder.ApplyConfiguration(new TollFreeVehicleTypeConfiguration());
             modelBuilder.ApplyConfiguration(new TollFreeDateConfiguration());
             modelBuilder.ApplyConfiguration(new TollFreeDayConfiguration());
+            modelBuilder.ApplyConfiguration(new TollFeeConfiguration());
 
         }
     }
