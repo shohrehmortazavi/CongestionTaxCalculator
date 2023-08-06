@@ -2,7 +2,7 @@
 using CongestionTaxCalculator.Application.Entities.TollFreeVehicleTypes.Dtos;
 using CongestionTaxCalculator.Application.Entities.TollFreeDates.Dtos;
 using CongestionTaxCalculator.Application.Entities.TollFreeDays.Dtos;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Dtos;
+using CongestionTaxCalculator.Application.Entities.VehicleTypes.Dtos;
 using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDays;

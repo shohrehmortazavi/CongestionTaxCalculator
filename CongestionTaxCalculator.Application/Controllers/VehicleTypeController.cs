@@ -1,6 +1,6 @@
-﻿using CongestionTaxCalculator.Application.Services.VehicleTypes.Commands;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Dtos;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Queries;
+﻿using CongestionTaxCalculator.Application.Entities.VehicleTypes.Commands;
+using CongestionTaxCalculator.Application.Entities.VehicleTypes.Dtos;
+using CongestionTaxCalculator.Application.Entities.VehicleTypes.Queries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CongestionTaxCalculator.Application.Controllers

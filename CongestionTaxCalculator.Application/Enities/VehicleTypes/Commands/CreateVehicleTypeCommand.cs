@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using CongestionTaxCalculator.Application.Entities;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Dtos;
+using CongestionTaxCalculator.Application.Entities.VehicleTypes.Dtos;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
 using CongestionTaxCalculator.Domain.Shared.Interfaces;
 using MediatR;
 
-namespace CongestionTaxCalculator.Application.Services.VehicleTypes.Commands
+namespace CongestionTaxCalculator.Application.Entities.VehicleTypes.Commands
 {
     public record CreateVehicleTypeCommand(VehicleTypeRequestDto VehicleTypeRequest) : IRequest<VehicleTypeResponseDto>;
 

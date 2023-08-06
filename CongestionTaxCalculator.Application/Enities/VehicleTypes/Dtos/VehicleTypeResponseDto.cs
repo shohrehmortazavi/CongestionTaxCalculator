@@ -1,4 +1,4 @@
-﻿namespace CongestionTaxCalculator.Application.Services.VehicleTypes.Dtos
+﻿namespace CongestionTaxCalculator.Application.Entities.VehicleTypes.Dtos
 {
     public class VehicleTypeResponseDto
     {

@@ -1,6 +1,4 @@
 ﻿using CongestionTaxCalculator.Application.Entities.Vehicles.Services;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Commands;
-using CongestionTaxCalculator.Application.Services.VehicleTypes.Queries;
 using CongestionTaxCalculator.Domain.Entities.Vehicles;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
 using CongestionTaxCalculator.Domain.Shared.Interfaces;
@@ -8,7 +6,6 @@ using CongestionTaxCalculator.Infrastructure.Data;
 using CongestionTaxCalculator.Infrastructure.Entities.Vehicles;
 using CongestionTaxCalculator.Infrastructure.Entities.VehicleTypes;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace CongestionTaxCalculator.Application.SeedWorks
 {
@@ -38,7 +35,7 @@ namespace CongestionTaxCalculator.Application.SeedWorks
         public static IServiceCollection AddUnitOfWork(this IServiceCollection services)
         {
             return services.AddScoped<IUnitOfWork, UnitOfWork>();
-        } 
+        }
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
