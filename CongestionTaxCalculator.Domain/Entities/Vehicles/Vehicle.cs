@@ -6,8 +6,12 @@ namespace CongestionTaxCalculator.Domain.Entities.Vehicles
     public class Vehicle : BaseEntity, IAggregateRoot
     {
         public Guid VehicleTypeId { get; private set; }
-        public Vehicle()
+        private Vehicle()
         {
+        }
+        public Vehicle(Guid vehicleTypeId)
+        {
+            VehicleTypeId = vehicleTypeId;
         }
 
         public virtual string GetVehicleType()

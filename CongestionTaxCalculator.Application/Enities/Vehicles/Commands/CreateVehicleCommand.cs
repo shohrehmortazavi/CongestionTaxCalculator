@@ -16,7 +16,7 @@ namespace CongestionTaxCalculator.Application.Entities.Vehicles.Commands
 
         public async Task<VehicleResponseDto> Handle(CreateVehicleCommand request, CancellationToken cancellationToken)
         {
-            var newVehicle = new Vehicle();
+            var newVehicle = new Vehicle(request.VehicleRequest.VehicleTypeId);
 
             var result = await _unitOfWork.VehicleWriteRepository.AddAsync(newVehicle);
 
