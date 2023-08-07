@@ -3,11 +3,13 @@ using CongestionTaxCalculator.Application.Entities.TollFees.Dtos;
 using CongestionTaxCalculator.Application.Entities.TollFreeDates.Dtos;
 using CongestionTaxCalculator.Application.Entities.TollFreeDays.Dtos;
 using CongestionTaxCalculator.Application.Entities.TollFreeVehicleTypes.Dtos;
+using CongestionTaxCalculator.Application.Entities.Vehicles.Dtos;
 using CongestionTaxCalculator.Application.Entities.VehicleTypes.Dtos;
 using CongestionTaxCalculator.Domain.Entities.TollFees;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDates;
 using CongestionTaxCalculator.Domain.Entities.TollFreeDays;
 using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
+using CongestionTaxCalculator.Domain.Entities.Vehicles;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
 
 namespace CongestionTaxCalculator.Application.SeedWorks
@@ -16,6 +18,7 @@ namespace CongestionTaxCalculator.Application.SeedWorks
     {
         public AutoMapperProfile()
         {
+            CreateMap<Vehicle, VehicleResponseDto>();
             CreateMap<VehicleType, VehicleTypeResponseDto>();
             CreateMap<TollFreeDate, TollFreeDateResponseDto>();
             CreateMap<TollFreeDay, TollFreeDayResponseDto>();

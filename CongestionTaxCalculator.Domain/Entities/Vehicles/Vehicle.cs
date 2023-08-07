@@ -12,9 +12,14 @@ namespace CongestionTaxCalculator.Domain.Entities.Vehicles
 
         public static Vehicle Create(Guid vehicleTypeId)
         {
-            return new Vehicle() { VehicleTypeId = vehicleTypeId };
+            return new Vehicle()
+            {
+                Id = Guid.NewGuid(),
+                VehicleTypeId = vehicleTypeId,
+                CreatedDate = DateTime.Now
+            };
         }
 
-    } 
+    }
 }
 
