@@ -4,6 +4,5 @@
     {
         public Guid Id { get; set; }
         public Guid VehicleTypeId { get; set; }
-        public string Title { get; set; }
     }
 }

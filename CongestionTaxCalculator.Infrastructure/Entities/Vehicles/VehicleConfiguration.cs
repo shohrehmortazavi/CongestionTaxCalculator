@@ -8,7 +8,6 @@ namespace CongestionTaxCalculator.Infrastructure.Entities.Vehicles
     {
         public void Configure(EntityTypeBuilder<Vehicle> builder)
         {
-            builder.Property(t => t.Title).HasMaxLength(50);
         }
     }
 }

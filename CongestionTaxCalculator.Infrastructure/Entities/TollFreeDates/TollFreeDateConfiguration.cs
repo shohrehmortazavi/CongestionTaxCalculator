@@ -8,7 +8,6 @@ namespace CongestionTaxCalculator.Infrastructure.Entities.TollFreeDates
     {
         public void Configure(EntityTypeBuilder<TollFreeDate> builder)
         {
-            builder.Property(t => t.Title).HasMaxLength(50);
             builder.Property(t => t.FreeDate).IsRequired();
         }
     }
