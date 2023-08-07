@@ -5,6 +5,7 @@ using CongestionTaxCalculator.Domain.Entities.TollFreeVehicleTypes;
 using CongestionTaxCalculator.Domain.Entities.VehicleTypes;
 using CongestionTaxCalculator.Domain.Shared;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CongestionTaxCalculator.Infrastructure.Data
@@ -13,10 +14,15 @@ namespace CongestionTaxCalculator.Infrastructure.Data
     {
         public static void EnsureMigrationOfContext<T>(this IApplicationBuilder app) where T : AppDbContext
         {
-            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
-            var _context = serviceScope.ServiceProvider.GetService<T>();
 
-            Seed(_context);
+            using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                var _context = serviceScope.ServiceProvider.GetService<T>();
+                _context.Database.Migrate();
+
+                Seed(_context);
+            }
+
         }
 
         private static void Seed<T>(T _context) where T : AppDbContext
