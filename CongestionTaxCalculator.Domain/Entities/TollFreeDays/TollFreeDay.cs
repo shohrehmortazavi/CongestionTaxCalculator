@@ -11,7 +11,6 @@ namespace CongestionTaxCalculator.Domain.Entities.TollFreeDays
         public TollFreeDay(DayOfWeek day)
         {
             Id = Guid.NewGuid();
-            Title = day.ToString();
             Day = day;
             CreatedDate = DateTime.Now;
         }

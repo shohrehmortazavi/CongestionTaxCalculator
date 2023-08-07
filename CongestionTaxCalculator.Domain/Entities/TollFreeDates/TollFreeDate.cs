@@ -11,7 +11,6 @@ namespace CongestionTaxCalculator.Domain.Entities.TollFreeDates
         public TollFreeDate(DateOnly freeDate)
         {
             Id = Guid.NewGuid();
-            Title = freeDate.ToString();
             FreeDate = freeDate;
             CreatedDate = DateTime.Now;
         }
